@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء حساب جديد - Service Regueb</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- الشعار / اللوجو -->
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-handshake-angle"></i> Service Regueb
+      </a>
+
+      <!-- زر العودة للصفحة الرئيسية -->
+      <div class="user-actions">
+        <a href="index.html" class="action-btn btn-login">
+          <i class="fa-solid fa-house"></i> <span>الرئيسية</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="container" style="max-width: 450px;">
+    
+    <div class="section-banner" style="margin-top: 30px;">
+      <h2><i class="fa-solid fa-user-plus"></i> إنشاء حساب جديد</h2>
+      <p>انضم إلينا لإضافة خدماتك وإدارتها بكل سهولة</p>
+    </div>
+
+    <!-- نموذج إنشاء الحساب -->
+    <div style="background-color: var(--card-bg); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+      
+      <form id="registerForm">
+        
+        <!-- الاسم الكامل -->
+        <div style="margin-bottom: 18px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 8px;">الاسم الكامل أو اسم المحل:</label>
+          <input type="text" class="search-input" style="max-width: 100%;" placeholder="أدخل اسمك أو اسم نشاطك" required>
+        </div>
+
+        <!-- رقم الهاتف -->
+        <div style="margin-bottom: 18px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 8px;">رقم الهاتف (تونس):</label>
+          <input type="tel" class="search-input" style="max-width: 100%;" placeholder="مثال: 50123456" pattern="[0-9]{8}" required>
+        </div>
+
+        <!-- كلمة المرور -->
+        <div style="margin-bottom: 25px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 8px;">كلمة المرور:</label>
+          <input type="password" class="search-input" style="max-width: 100%;" placeholder="••••••••" required>
+        </div>
+
+        <!-- زر التسجيل -->
+        <button type="submit" class="action-btn" style="width: 100%; justify-content: center; padding: 12px; font-size: 1rem; border-radius: 8px; background-color: var(--primary-color); color: #fff; border: none; cursor: pointer;">
+          <i class="fa-solid fa-user-check"></i> تسجيل الحساب
+        </button>
+
+      </form>
+
+      <!-- خيار العودة لتسجيل الدخول أسفل الزر -->
+      <div style="text-align: center; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">لديك حساب بالفعل؟ 
+          <a href="login.html" style="color: var(--primary-color); font-weight: 600; text-decoration: none; margin-right: 5px;">تسجيل الدخول</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

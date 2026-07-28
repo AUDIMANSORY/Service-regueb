@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Regueb - خدمات الرقاب</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- الشعار / اللوجو على أقصى اليمين -->
+      <a href="#" class="logo">
+        <i class="fa-solid fa-handshake-angle"></i> Service Regueb
+      </a>
+
+      <!-- زر الدخول في أقصى اليسار -->
+      <div class="user-actions">
+        <a href="login.html" class="action-btn btn-login">
+          <i class="fa-solid fa-right-to-bracket"></i> <span>دخول</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- القائمة الرئيسية -->
+    <nav class="main-nav">
+      <button class="nav-btn active" onclick="showMainSection('all-section', this)">
+        <i class="fa-solid fa-border-all"></i> الكل
+      </button>
+      <button class="nav-btn" onclick="showMainSection('craftsmen-section', this)">
+        <i class="fa-solid fa-wrench"></i> الخدمات والحرفيين
+      </button>
+      <button class="nav-btn" onclick="showMainSection('delivery-section', this)">
+        <i class="fa-solid fa-truck-fast"></i> التوصيل
+      </button>
+    </nav>
+
+    <!-- القائمة الفرعية للتوصيل -->
+    <div id="delivery-sub-nav" class="sub-nav" style="display: none;">
+      <button class="sub-btn active" onclick="showDeliverySub('bikes-sub', this)">
+        <i class="fa-solid fa-motorcycle"></i> توصيل الدراجات
+      </button>
+      <button class="sub-btn" onclick="showDeliverySub('cars-sub', this)">
+        <i class="fa-solid fa-car"></i> السيارات
+      </button>
+      <button class="sub-btn" onclick="showDeliverySub('louage-sub', this)">
+        <i class="fa-solid fa-van-shuttle"></i> اللواجات
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. قسم الكل -->
+    <section id="all-section" class="main-section">
+      <div class="placeholder-box">
+        <h2>مرحباً بكم في موقع خدمات الرقاب</h2>
+        <p>اختر من القائمة أعلاه لتصفح الخدمات أو التوصيل.</p>
+      </div>
+    </section>
+
+    <!-- 2. قسم الخدمات والحرفيين -->
+    <section id="craftsmen-section" class="main-section" style="display: none;">
+      <div class="placeholder-box">
+        <h2>قسم الخدمات والحرفيين</h2>
+        <p>قائمة السباكين، الكهربائيين، والمهن الحرة بالرقاب...</p>
+      </div>
+    </section>
+
+    <!-- 3. قسم التوصيل الرئيسي -->
+    <section id="delivery-section" class="main-section" style="display: none;">
+
+      <!-- أ) فرعي: توصيل الدراجات النارية -->
+      <div id="bikes-sub" class="delivery-sub-content">
+        
+        <div class="section-banner">
+          <h2>🛵 توصيل الطلبات عبر الدراجات النارية (الرقاب)</h2>
+          <p>خدمة توصيل الطلبات، المأكولات والأوراق داخل مدينة الرقاب</p>
+        </div>
+
+        <!-- شريط البحث لخدمة الدراجات -->
+        <div style="margin-bottom: 20px; text-align: center;">
+          <input type="text" id="searchBikeInput" class="search-input" onkeyup="filterBikeDrivers()" placeholder="🔍 إبحث عن عامل توصيل بالاسم...">
+        </div>
+
+        <!-- قائمة أسماء وأرقام الديليفري -->
+        <div id="bike-drivers-container" class="drivers-grid">
+          
+          <div class="driver-card">
+            <div>
+              <h3>Vespa Taxi (للنساء فقط)</h3>
+              <p>92 331 778</p>
+            </div>
+            <a href="tel:92331778" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>BEEP DELIVERY (مجدي)</h3>
+              <p>55 167 967</p>
+            </div>
+            <a href="tel:55167967" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>نجيك للباب / Lomry</h3>
+              <p>55 848 794</p>
+            </div>
+            <a href="tel:55848794" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>SONEK DELIVERY (أحمد)</h3>
+              <p>50 603 021</p>
+            </div>
+            <a href="tel:50603021" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>SHOO SHOO DELIVERY</h3>
+              <p>55 884 733</p>
+            </div>
+            <a href="tel:55884733" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>LOUAY DELIVERY (رقم 1)</h3>
+              <p>50 146 002</p>
+            </div>
+            <a href="tel:50146002" class="btn-call">📞 اتصل</a>
+          </div>
+
+          <div class="driver-card">
+            <div>
+              <h3>LOUAY DELIVERY (رقم 2)</h3>
+              <p>96 101 081</p>
+            </div>
+            <a href="tel:96101081" class="btn-call">📞 اتصل</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ب) فرعي: سيارات -->
+      <div id="cars-sub" class="delivery-sub-content" style="display: none;">
+        <div class="placeholder-box">
+          <h2>🚗 توصيل السيارات / تاكسي</h2>
+          <p>خدمة التاكسي والتوصيل الخاص بالرقاب.</p>
+        </div>
+      </div>
+
+      <!-- ج) فرعي: اللواجات -->
+      <div id="louage-sub" class="delivery-sub-content" style="display: none;">
+        
+        <div class="section-banner">
+          <h2>🚌 خدمات لواجات الرقاب البيّة</h2>
+          <p>اختر الخط والوجهة لعرض قائمة السائقين والاتصال المباشر</p>
+        </div>
+
+        <!-- اختيار الولايات -->
+        <div style="margin-bottom: 20px; text-align: center;">
+          <label for="routeSelect" style="font-weight: bold; display: block; margin-bottom: 8px;">📍 اختر خط النقل:</label>
+          <select id="routeSelect" class="filter-select" onchange="switchRoute()">
+            <option value="tunis">الرقاب ⇄ تونس (متوفر)</option>
+            <option value="sfax">الرقاب ⇄ صفاقس</option>
+            <option value="sousse">الرقاب ⇄ سوسة</option>
+            <option value="monastir">الرقاب ⇄ المنستير</option>
+            <option value="bouzid">الرقاب ⇄ سيدي بوزيد</option>
+            <option value="kairouan">الرقاب ⇄ القيروان</option>
+          </select>
+        </div>
+
+        <!-- شريط البحث عن سائقي اللواج -->
+        <div style="margin-bottom: 20px; text-align: center;">
+          <input type="text" id="searchInput" class="search-input" onkeyup="filterDrivers()" placeholder="🔍 إبحث عن سائق بالاسم...">
+        </div>
+
+        <!-- قائمة خط تونس -->
+        <div id="route-tunis" class="route-group drivers-grid">
+          <div class="driver-card"><div><h3>نضال يوسفي</h3><p>44 110 584</p></div><a href="tel:44110584" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>أكرم كحلي</h3><p>54 250 923</p></div><a href="tel:54250923" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>وسام بحيري</h3><p>51 261 007</p></div><a href="tel:51261007" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماهر زريبي</h3><p>98 318 713</p></div><a href="tel:98318713" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماجد زريبي</h3><p>41 211 137</p></div><a href="tel:41211137" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ناجح زريبي</h3><p>97 985 132</p></div><a href="tel:97985132" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>بوزيان جوادي</h3><p>95 787 014</p></div><a href="tel:95787014" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>صابر خليفي</h3><p>98 926 970</p></div><a href="tel:98926970" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>محمد طقوقي</h3><p>97 610 722</p></div><a href="tel:97610722" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماهر عامري</h3><p>97 244 380</p></div><a href="tel:97244380" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+        <!-- باقي الولايات -->
+        <div id="route-sfax" class="route-group placeholder-box" style="display: none;"><p>🚧 خط الرقاب ⇄ صفاقس: قريباً</p></div>
+        <div id="route-sousse" class="route-group placeholder-box" style="display: none;">
+            <div class="driver-card"><div><h3>فيصل</h3><p>98 263 646</p></div><a href="tel:98263646" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>عزالدين</h3><p>97 590 107</p></div><a href="tel:97590107" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>محمد</h3><p>95 177 700</p></div><a href="tel:95177700" class="btn-call">📞 اتصل</a></div>
+        </div>
+        <div id="route-monastir" class="route-group placeholder-box" style="display: none;">
+            <div class="driver-card"><div><h3>فتحي</h3><p>97 886 019</p></div><a href="tel:97886019" class="btn-call">📞 اتصل</a></div>
+        </div>
+        <div id="route-bouzid" class="route-group placeholder-box" style="display: none;">
+            <div class="driver-card"><div><h3>المسؤول على المحطة</h3><p>50 433 140</p></div><a href="tel:50433140" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>وليد قادري (الريقو)</h3><p>96 919 006</p></div><a href="tel:96919006" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>بسام زريبي</h3><p>98 318 765</p></div><a href="tel:98318765" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>محمد عيوني (بقوق)</h3><p>29 032 757</p></div><a href="tel:29032757" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>جمال الزرعي</h3><p>22 266 604</p></div><a href="tel:22266604" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>حسين عبيدي</h3><p>50 640 170</p></div><a href="tel:50640170" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>الناصر عامري</h3><p>50 644 458</p></div><a href="tel:50644458" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>عبد الحليم عبيدي</h3><p>55 260 619</p></div><a href="tel:55260619" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>رشيد عيوني</h3><p>98 210 876</p></div><a href="tel:98210876" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>رضا زراعي</h3><p>99 842 025</p></div><a href="tel:99842025" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>شكري قالحي</h3><p>29 574 443</p></div><a href="tel:29574443" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>صفوان شابي</h3><p>98 240 308</p></div><a href="tel:98240308" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>عمران جلابي</h3><p>98 315 864</p></div><a href="tel:98315864" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>فتحي ديش</h3><p>96 946 711</p></div><a href="tel:96946711" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>كمال صالحي</h3><p>22 132 502</p></div><a href="tel:22132502" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>محمد الصمودي</h3><p>41 211 124</p></div><a href="tel:41211124" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>منير عبدلي</h3><p>96 373 106</p></div><a href="tel:96373106" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>جميع خدمات الرقاب</h3><p>98 720 727</p></div><a href="tel:98720727" class="btn-call">📞 اتصل</a></div>
+
+<div class="driver-card"><div><h3>ناظم قادري</h3><p>51 773 766</p></div><a href="tel:51773766" class="btn-call">📞 اتصل</a></div>
+
+        </div>
+        <div id="route-kairouan" class="route-group placeholder-box" style="display: none;"><p>🚧 خط الرقاب ⇄ القيروان: قريباً</p></div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- زر إضافة إعلان الدائري العائم في الأسفل -->
+  <a href="add-ad.html" class="fab-add-btn" title="إضافة إعلان جديد">
+    <i class="fa-solid fa-plus"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

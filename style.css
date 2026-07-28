@@ -1,0 +1,295 @@
+/* ==========================================
+   1. المتغيرات والتنسيقات العامة (Variables & Reset)
+   ========================================== */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #f1f5f9;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --success-color: #10b981;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  direction: rtl;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* ==========================================
+   2. الهيدر وشريط التنقل (Header & Navbar)
+   ========================================== */
+.site-header {
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo i {
+  color: var(--primary-color);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-login {
+  background-color: var(--secondary-color);
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color);
+}
+
+.btn-login:hover {
+  background-color: #e2e8f0;
+}
+
+/* القوائم الرئيسية والفرعية */
+.main-nav, .sub-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
+.sub-nav {
+  background-color: #edf2f7;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-btn, .sub-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-btn.active, .sub-btn.active {
+  background-color: var(--primary-color);
+  color: #ffffff !important;
+}
+
+.nav-btn:hover:not(.active), .sub-btn:hover:not(.active) {
+  background-color: #e2e8f0;
+  color: var(--text-color);
+}
+
+/* ==========================================
+   3. العناصر البصرية والشعارات (Banners & Controls)
+   ========================================== */
+.section-banner {
+  background: linear-gradient(135deg, #1e3a8a, var(--primary-color));
+  color: #ffffff;
+  padding: 25px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow-md);
+}
+
+.section-banner h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.section-banner p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.search-input, .filter-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #ffffff;
+}
+
+.search-input:focus, .filter-select:focus {
+  border-color: var(--primary-color);
+}
+
+.placeholder-box {
+  background-color: var(--card-bg);
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px dashed var(--border-color);
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   4. شبكة الكروت ومقدمي الخدمات (Grid & Cards)
+   ========================================== */
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.driver-card {
+  background-color: var(--card-bg);
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.driver-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.driver-card h3 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.driver-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  direction: ltr;
+  text-align: right;
+}
+
+.btn-call {
+  background-color: var(--success-color);
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-call:hover {
+  background-color: #059669;
+}
+
+/* ==========================================
+   5. زر إضافة إعلان العائم (Floating Button)
+   ========================================== */
+.fab-add-btn {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  width: 55px;
+  height: 55px;
+  background-color: var(--success-color);
+  color: #ffffff !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  z-index: 2000;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.fab-add-btn:hover {
+  transform: scale(1.1);
+  background-color: #059669;
+}
+
+/* ==========================================
+   6. الاستجابة للشاشات الصغيرة (Responsive)
+   ========================================== */
+@media (max-width: 600px) {
+  .drivers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input, .filter-select {
+    width: 90%;
+  }
+
+  .fab-add-btn {
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
