@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Regueb - خدمات الرقاب</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- الشعار / اللوجو على اليمين -->
+      <a href="#" class="logo">
+        <i class="fa-solid fa-handshake-angle"></i> Service Regueb
+      </a>
+
+      <!-- زر الدخول في أقصى اليسار -->
+      <div class="user-actions">
+        <a href="login.html" class="action-btn btn-login">
+          <i class="fa-solid fa-right-to-bracket"></i> <span>دخول</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- القائمة الرئيسية -->
+    <nav class="main-nav">
+      <button class="nav-btn active" onclick="showMainSection('all-section', this)">
+        <i class="fa-solid fa-border-all"></i> الكل
+      </button>
+      <button class="nav-btn" onclick="showMainSection('craftsmen-section', this)">
+        <i class="fa-solid fa-wrench"></i> الخدمات والحرفيين
+      </button>
+      <button class="nav-btn" onclick="showMainSection('delivery-section', this)">
+        <i class="fa-solid fa-truck-fast"></i> التوصيل
+      </button>
+    </nav>
+
+    <!-- القائمة الفرعية للخدمات والحرفيين -->
+    <div id="craftsmen-sub-nav" class="sub-nav" style="display: none;">
+      <button class="sub-btn active" onclick="showCraftsmenSub('polishing-sub', this)">
+        <i class="fa-solid fa-gem"></i> صقل الكرلاج والرخام
+      </button>
+      <button class="sub-btn" onclick="showCraftsmenSub('sweets-sub', this)">
+        <i class="fa-solid fa-cake-candles"></i> الحلويات والمناسبات
+      </button>
+      <button class="sub-btn" onclick="showCraftsmenSub('training-sub', this)">
+        <i class="fa-solid fa-graduation-cap"></i> التكوين والتدريب المهني
+      </button>
+      <button class="sub-btn" onclick="showCraftsmenSub('health-sub', this)">
+        <i class="fa-solid fa-user-nurse"></i> التمريض والصحة
+      </button>
+      <button class="sub-btn" onclick="showCraftsmenSub('other-crafts-sub', this)">
+        <i class="fa-solid fa-hammer"></i> باقي الحرف
+      </button>
+    </div>
+
+    <!-- القائمة الفرعية للتوصيل -->
+    <div id="delivery-sub-nav" class="sub-nav" style="display: none;">
+      <button class="sub-btn active" onclick="showDeliverySub('bikes-sub', this)">
+        <i class="fa-solid fa-motorcycle"></i> توصيل الدراجات
+      </button>
+      <button class="sub-btn" onclick="showDeliverySub('cars-sub', this)">
+        <i class="fa-solid fa-car"></i> السيارات
+      </button>
+      <button class="sub-btn" onclick="showDeliverySub('louage-sub', this)">
+        <i class="fa-solid fa-van-shuttle"></i> اللواجات
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. قسم الكل -->
+    <section id="all-section" class="main-section">
+      <div class="placeholder-box">
+        <h2>مرحباً بكم في موقع خدمات الرقاب</h2>
+        <p>اختر من القائمة أعلاه لتصفح الخدمات أو التوصيل.</p>
+      </div>
+    </section>
+
+    <!-- 2. قسم الخدمات والحرفيين الرئيسي -->
+    <section id="craftsmen-section" class="main-section" style="display: none;">
+
+      <!-- أ) فرعي: صقل الكرلاج والرخام -->
+      <div id="polishing-sub" class="craftsmen-sub-content">
+        
+        <div class="polishing-banner">
+          <div class="polishing-banner-icon">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h2>صقل وتلميع الكرلاج والرخام بالرقاب</h2>
+          <p>أفضل الحرفيين المختصين في جلي، صقل، وتلميع كافة أنواع الأرضيات والبلاط بأحدث المعدات</p>
+          
+          <div class="polishing-features">
+            <span><i class="fa-solid fa-circle-check"></i> تلميع بالألماس</span>
+            <span><i class="fa-solid fa-circle-check"></i> معدات حديثة</span>
+            <span><i class="fa-solid fa-circle-check"></i> أسعار مناسبة</span>
+            <span><i class="fa-solid fa-circle-check"></i> سرعة في الإنجاز</span>
+          </div>
+        </div>
+
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchPolishingInput" class="search-input custom-search-input" onkeyup="filterPolishingServices()" placeholder="إبحث عن اسم الحرفي أو رقم الهاتف...">
+        </div>
+
+        <div id="polishing-services-container" class="polishing-grid">
+          
+          <div class="polishing-card">
+            <div class="polishing-card-header">
+              <div class="avatar-icon">
+                <i class="fa-solid fa-user-gear"></i>
+              </div>
+              <div class="card-title-group">
+                <h3>خدمات صقل الكرلاج والرخام</h3>
+                <span class="location-badge"><i class="fa-solid fa-location-dot"></i> مدينة الرقاب والنواحي</span>
+              </div>
+            </div>
+
+            <div class="polishing-card-body">
+              <div class="info-row">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>صقل، تلميع، وإصلاح جميع أنواع الرخام والكرلاج</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-clock"></i>
+                <span>متوفر يومياً للحجز والاستفسار</span>
+              </div>
+            </div>
+
+            <div class="polishing-card-footer">
+              <span class="call-title">للتواصل والاتصال المباشر:</span>
+              <div class="phone-buttons-group">
+                <a href="tel:22561830" class="btn-call-styled">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>22 561 830</span>
+                </a>
+                <a href="tel:98483653" class="btn-call-styled btn-call-alt">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>98 483 653</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="add-craftsman-notice">
+          <i class="fa-solid fa-plus-circle"></i>
+          <div>
+            <h4>هل أنت أسطى صقل كرلاج ورخام في الرقاب؟</h4>
+            <p>تواصل معنا لإضافة رقمك وخدمتك في هذه القائمة ليصل إليك الزبائن مباشرة.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ب) فرعي: الحلويات والمناسبات (Maison Jleli) -->
+      <div id="sweets-sub" class="craftsmen-sub-content" style="display: none;">
+        
+        <div class="sweets-banner">
+          <div class="sweets-banner-icon">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <h2>صناعة الحلويات والمناسبات</h2>
+          <p>أجود وأفخم الحلويات التونسية والعصرية للمناسبات والأفراح بمدينة الرقاب</p>
+        </div>
+
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchSweetsInput" class="search-input custom-search-input" onkeyup="filterSweetsServices()" placeholder="إبحث عن محل حلويات، المذاق، أو الرقم...">
+        </div>
+
+        <div id="sweets-services-container" class="sweets-grid">
+          
+          <div class="sweets-card">
+            <div class="sweets-card-header">
+              <div class="sweets-avatar">
+                <i class="fa-solid fa-cookie-bite"></i>
+              </div>
+              <div class="card-title-group">
+                <h3>Maison Jleli (ميزون جليلي)</h3>
+                <span class="sweets-tagline"><i class="fa-solid fa-star"></i> Goût Spécial - مذاق خاص لا يُنسى</span>
+              </div>
+            </div>
+
+            <div class="sweets-card-body">
+              <p class="sweets-desc">صناعة وتوفير أفخم أنواع الحلويات للمناسبات، الحفلات، والأفراح بأعلى معايير الجودة والنظافة.</p>
+
+              <div class="services-list-title"><i class="fa-solid fa-award"></i> مميزات الخدمة:</div>
+              <ul class="sweets-features-list">
+                <li><i class="fa-solid fa-leaf"></i> منتجات طبيعية 100%</li>
+                <li><i class="fa-solid fa-shield-halved"></i> جودة مضمونة وأفضل المكونات</li>
+                <li><i class="fa-solid fa-utensils"></i> إتقان وشغف في تحضير كل تفصيلة</li>
+                <li><i class="fa-solid fa-gem"></i> إتقان عالي في الصنع والشكل</li>
+              </ul>
+            </div>
+
+            <div class="sweets-card-footer">
+              <span class="call-title">لطلب الطلبيات والاستفسار المباشر:</span>
+              <a href="tel:55848200" class="btn-call-sweets">
+                <i class="fa-solid fa-phone"></i>
+                <span>55 848 200</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ج) فرعي: التكوين والتدريب المهني (ETM PRO) -->
+      <div id="training-sub" class="craftsmen-sub-content" style="display: none;">
+        
+        <div class="training-banner">
+          <div class="training-banner-icon">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h2>التكوين والتدريب المهني والتكنولوجي</h2>
+          <p>دورات تدريبية وتكوين تطبيقي لاكتساب مهارات واحتراف المهن الحديثة</p>
+        </div>
+
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchTrainingInput" class="search-input custom-search-input" onkeyup="filterTrainingServices()" placeholder="إبحث عن مركز تكوين، دورة، أو اختصاص...">
+        </div>
+
+        <div id="training-services-container" class="training-grid">
+          
+          <!-- كارت مركز ETM PRO -->
+          <div class="training-card">
+            <div class="training-card-header">
+              <div class="training-avatar">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="card-title-group">
+                <h3>ETM PRO - école de technologies modernes</h3>
+                <span class="training-tagline"><i class="fa-solid fa-certificate"></i> دورات تكوينية وتدريب مهني تطبيقي</span>
+              </div>
+            </div>
+
+            <div class="training-card-body">
+              <h4 class="course-title"><i class="fa-solid fa-plug"></i> تكوين في كهرباء البناء (Électricité de Bâtiment)</h4>
+              <p class="training-desc">دورة مخصصة لاكتساب مهارات تطبيقية وعملية تمكنك من الدخول المباشر لسوق العمل بحرفية عالية.</p>
+
+              <div class="services-list-title"><i class="fa-solid fa-circle-info"></i> مميزات التكوين:</div>
+              <ul class="training-features-list">
+                <li><i class="fa-solid fa-square-check"></i> تربص تطبيقي (Stage pratique)</li>
+                <li><i class="fa-solid fa-square-check"></i> مؤطرون ومكونون مؤهلون (Formateurs qualifiés)</li>
+                <li><i class="fa-solid fa-square-check"></i> شهادة تكوين معتمدة (Formation certifiante)</li>
+                <li><i class="fa-solid fa-square-check"></i> الأماكن محدودة للراغبين في التسجيل</li>
+              </ul>
+
+              <div class="info-row location-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><strong>العنوان:</strong> شارع أبو القاسم الشابي، فوق مكتبة الشموع 3، سيدي بوزيد</span>
+              </div>
+            </div>
+
+            <div class="training-card-footer">
+              <span class="call-title">للتسجيل والاستفسار المباشر:</span>
+              <a href="tel:50221498" class="btn-call-training">
+                <i class="fa-solid fa-phone"></i>
+                <span>50 221 498</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- د) فرعي: التمريض والصحة -->
+      <div id="health-sub" class="craftsmen-sub-content" style="display: none;">
+        
+        <div class="health-banner">
+          <div class="health-banner-icon">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <h2>خدمات التمريض والرعاية الصحية بالرقاب</h2>
+          <p>عيادات التمريض، الرعاية المنزلية، وخدمات الإسعافات والمتابعة المباشرة</p>
+        </div>
+
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchHealthInput" class="search-input custom-search-input" onkeyup="filterHealthServices()" placeholder="إبحث عن عيادة، ممرض، أو خدمة...">
+        </div>
+
+        <div id="health-services-container" class="health-grid">
+          
+          <div class="health-card">
+            <div class="health-card-header">
+              <div class="health-avatar">
+                <i class="fa-solid fa-staff-snake"></i>
+              </div>
+              <div class="card-title-group">
+                <h3>عيادة المنار للتمريض بالرقاب</h3>
+                <span class="nurse-title"><i class="fa-solid fa-user-md"></i> محمد الساسي زريبي (ممرض رئيس أول)</span>
+              </div>
+              <span class="experience-badge"><i class="fa-solid fa-award"></i> خبرة 45 عام</span>
+            </div>
+
+            <div class="health-card-body">
+              <div class="info-row location-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><strong>العنوان:</strong> قرب الكنام - طريق المكناسي، الرقاب</span>
+              </div>
+
+              <div class="services-list-title"><i class="fa-solid fa-list-check"></i> الخدمات المقدمة:</div>
+              <ul class="health-services-list">
+                <li><i class="fa-solid fa-circle-check"></i> رعاية وتمريض منزلي</li>
+                <li><i class="fa-solid fa-circle-check"></i> حقن وريدية وعضلية</li>
+                <li><i class="fa-solid fa-circle-check"></i> تركيب محاليل (سيروم)</li>
+                <li><i class="fa-solid fa-circle-check"></i> قياس الضغط والسكر</li>
+                <li><i class="fa-solid fa-circle-check"></i> متابعة الحالات المزمنة</li>
+              </ul>
+            </div>
+
+            <div class="health-card-footer">
+              <span class="call-title">للاتصال والاستفسار:</span>
+              <a href="tel:98101950" class="btn-call-health">
+                <i class="fa-solid fa-phone-volume"></i>
+                <span>98 101 950</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- هـ) فرعي: باقي الحرف -->
+      <div id="other-crafts-sub" class="craftsmen-sub-content" style="display: none;">
+        <div class="placeholder-box">
+          <h2>🔨 خدمات وحرف متنوعة</h2>
+          <p>السباكة، الكهرباء، البناء، وغيرها من المهن الحرة بالرقاب...</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. قسم التوصيل الرئيسي -->
+    <section id="delivery-section" class="main-section" style="display: none;">
+
+      <!-- أ) فرعي: توصيل الدراجات النارية -->
+      <div id="bikes-sub" class="delivery-sub-content">
+        
+        <div class="section-banner">
+          <h2>🛵 توصيل الطلبات عبر الدراجات النارية (الرقاب)</h2>
+          <p>خدمة توصيل الطلبات، المأكولات والأوراق داخل مدينة الرقاب</p>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+          <input type="text" id="searchBikeInput" class="search-input" onkeyup="filterBikeDrivers()" placeholder="🔍 إبحث عن عامل توصيل بالاسم...">
+        </div>
+
+        <div id="bike-drivers-container" class="drivers-grid">
+          <div class="driver-card"><div><h3>Vespa Taxi (للنساء فقط)</h3><p>92 331 778</p></div><a href="tel:92331778" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>BEEP DELIVERY (مجدي)</h3><p>55 167 967</p></div><a href="tel:55167967" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>نجيك للباب / Lomry</h3><p>55 848 794</p></div><a href="tel:55848794" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>SONEK DELIVERY (أحمد)</h3><p>50 603 021</p></div><a href="tel:50603021" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>SHOO SHOO DELIVERY</h3><p>55 884 733</p></div><a href="tel:55884733" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>LOUAY DELIVERY (رقم 1)</h3><p>50 146 002</p></div><a href="tel:50146002" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>LOUAY DELIVERY (رقم 2)</h3><p>96 101 081</p></div><a href="tel:96101081" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+      </div>
+
+      <!-- ب) فرعي: سيارات -->
+      <div id="cars-sub" class="delivery-sub-content" style="display: none;">
+        <div class="placeholder-box">
+          <h2>🚗 توصيل السيارات / تاكسي</h2>
+          <p>خدمة التاكسي والتوصيل الخاص بالرقاب.</p>
+        </div>
+      </div>
+
+      <!-- ج) فرعي: اللواجات -->
+      <div id="louage-sub" class="delivery-sub-content" style="display: none;">
+        
+        <div class="section-banner">
+          <h2>🚌 خدمات لواجات الرقاب البيّة</h2>
+          <p>اختر الخط والوجهة لعرض قائمة السائقين والاتصال المباشر</p>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+          <label for="routeSelect" style="font-weight: bold; display: block; margin-bottom: 8px;">📍 اختر خط النقل:</label>
+          <select id="routeSelect" class="filter-select" onchange="switchRoute()">
+            <option value="tunis">الرقاب ⇄ تونس</option>
+            <option value="bouzid">الرقاب ⇄ سيدي بوزيد</option>
+            <option value="sousse">الرقاب ⇄ سوسة</option>
+            <option value="monastir">الرقاب ⇄ المنستير</option>
+            <option value="sfax">الرقاب ⇄ صفاقس</option>
+            <option value="kairouan">الرقاب ⇄ القيروان</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+          <input type="text" id="searchInput" class="search-input" onkeyup="filterDrivers()" placeholder="🔍 إبحث عن سائق بالاسم...">
+        </div>
+
+        <div id="route-tunis" class="route-group drivers-grid">
+          <div class="driver-card"><div><h3>نضال يوسفي</h3><p>44 110 584</p></div><a href="tel:44110584" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>أكرم كحلي</h3><p>54 250 923</p></div><a href="tel:54250923" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>وسام بحيري</h3><p>51 261 007</p></div><a href="tel:51261007" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماهر زريبي</h3><p>98 318 713</p></div><a href="tel:98318713" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماجد زريبي</h3><p>41 211 137</p></div><a href="tel:41211137" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ناجح زريبي</h3><p>97 985 132</p></div><a href="tel:97985132" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>بوزيان جوادي</h3><p>95 787 014</p></div><a href="tel:95787014" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>صابر خليفي</h3><p>98 926 970</p></div><a href="tel:98926970" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>محمد طقوقي</h3><p>97 610 722</p></div><a href="tel:97610722" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ماهر عامري</h3><p>97 244 380</p></div><a href="tel:97244380" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+        <div id="route-bouzid" class="route-group drivers-grid" style="display: none;">
+          <div class="driver-card"><div><h3>المسؤول على المحطة</h3><p>50 433 140</p></div><a href="tel:50433140" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>وليد قادري (الريقو)</h3><p>96 919 006</p></div><a href="tel:96919006" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>بسام زريبي</h3><p>98 318 765</p></div><a href="tel:98318765" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>محمد عيوني (بقوق)</h3><p>29 032 757</p></div><a href="tel:29032757" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>جمال الزرعي</h3><p>22 266 604</p></div><a href="tel:22266604" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>حسين عبيدي</h3><p>50 640 170</p></div><a href="tel:50640170" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>الناصر عامري</h3><p>50 644 458</p></div><a href="tel:50644458" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>عبد الحليم عبيدي</h3><p>55 260 619</p></div><a href="tel:55260619" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>رشيد عيوني</h3><p>98 210 876</p></div><a href="tel:98210876" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>رضا زارعي</h3><p>99 842 025</p></div><a href="tel:99842025" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>شكري قالحي</h3><p>29 574 443</p></div><a href="tel:29574443" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>صفوان شابي</h3><p>98 240 308</p></div><a href="tel:98240308" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>عمران جلالي</h3><p>98 315 864</p></div><a href="tel:98315864" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>فتحي ديش</h3><p>96 946 711</p></div><a href="tel:96946711" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>كمال صالحي</h3><p>22 132 502</p></div><a href="tel:22132502" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>محمد الصمودي</h3><p>41 211 124</p></div><a href="tel:41211124" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>منير عبدلي</h3><p>96 373 106</p></div><a href="tel:96373106" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>جميع خدمات الرقاب</h3><p>98 720 727</p></div><a href="tel:98720727" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>ناظم قادري</h3><p>51 773 766</p></div><a href="tel:51773766" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+        <div id="route-sousse" class="route-group drivers-grid" style="display: none;">
+          <div class="driver-card"><div><h3>فيصل</h3><p>98 263 646</p></div><a href="tel:98263646" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>عزالدين</h3><p>97 590 107</p></div><a href="tel:97590107" class="btn-call">📞 اتصل</a></div>
+          <div class="driver-card"><div><h3>محمد</h3><p>95 177 700</p></div><a href="tel:95177700" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+        <div id="route-monastir" class="route-group drivers-grid" style="display: none;">
+          <div class="driver-card"><div><h3>فتحي</h3><p>97 886 019</p></div><a href="tel:97886019" class="btn-call">📞 اتصل</a></div>
+        </div>
+
+        <div id="route-sfax" class="route-group placeholder-box" style="display: none;"><p>🚧 خط الرقاب ⇄ صفاقس: قريباً</p></div>
+        <div id="route-kairouan" class="route-group placeholder-box" style="display: none;"><p>🚧 خط الرقاب ⇄ القيروان: قريباً</p></div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- زر إضافة إعلان الدائري العائم -->
+  <a href="add-ad.html" id="fabAddBtn" class="fab-add-btn" title="إضافة إعلان جديد">
+    <i class="fa-solid fa-plus"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
